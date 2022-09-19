@@ -1,0 +1,14 @@
+*{
+    background-color: cadetblue;
+    color: black;
+}
+
+nav ul{
+    list-style: none;
+    display: block;
+}
+
+a{
+    background-color: cadetblue;
+}
+
