@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostPost;
+use App\Models\medicinas;
 use Illuminate\Http\Request;
 
 class MedicinaController extends Controller
@@ -13,7 +16,9 @@ class MedicinaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $medicinas=Medicinas::orderBy('created_at', 'desc')->cursorpaginate(5);
+        echo view ('dashboard.post.index', ['medicinas'=>$medicinas]);
+        //return view('dashboard.index');
     }
 
     /**

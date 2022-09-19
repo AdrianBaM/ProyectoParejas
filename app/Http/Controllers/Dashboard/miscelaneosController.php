@@ -18,7 +18,7 @@ class miscelaneosController extends Controller
     {
         //asc es de forma ascendente
         $miscelaneos=miscelaneos::orderBy('created_at', 'desc')->cursorpaginate(5);
-        echo view ('dashboard.post2.index2', ['miscelaneos'=>$miscelaneos]);
+        echo view ('dashboard.post.index2', ['miscelaneos'=>$miscelaneos]);
         
     }
 
@@ -29,7 +29,7 @@ class miscelaneosController extends Controller
      */
     public function create()
     {
-        echo view ('dashboard.post2.create');
+        echo view ('dashboard.post.create');
         //
     }
 
