@@ -50,52 +50,48 @@ class medicinasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\medicinas  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(medicinas $medicina)
     {
-        $medicina = medicinas::find($id);
-        return view('dashboard.post.show')->with('medicinas', $medicina);
+        echo view ('dashboard.post.show', ["medicinas"=>$medicina]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\medicinas   $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(medicinas $medicina)
     {
-        $medicina = medicinas::find($id);
-        return view('dashboard.post.edit')->with('medicinas', $medicina);
+        echo view ('dashboard.post.edit', ["medicinas"=>$medicina]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\medicinas   $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostPost $request, medicinas $medicina)
     {
-        medicinas::find($id);
-        echo "El titulo trae: ".$request->Nombre;
-        medicinas::create($request->validated());
-        return back()->with('status','Post creado con exito');
+        $medicina->update($request->validated());
+        return back()->with('status', 'Muchas gracias tu post fue realizado');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\medicinas   $id
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(medicinas $medicinas)
     {
-        $medicinas = medicinas::findOrFail($id);
         $medicinas->delete();
-        return redirect()->route('medicinas.index');
+        return back()->with('status', 'Post fue eliminado');
     }
 }

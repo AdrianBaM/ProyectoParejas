@@ -13,58 +13,57 @@
 </head>
 <body>
     <h1>Ingreso de medicamentos</h1>
-    <form action="{{route('post.store')}}" method="POST">
-        @csrf
+    <form action="{{route('post.update', $medicinas->id)}}" method="POST">
         @method('PUT');
         @include('dashboard.partials.session-flash-status')
         <div class="container">
             <nav>
-                <ul>
+            <ul>
                     <li>
                         <label for="">Nombre Medicamento</label>
-                        <input type="text" name="Nombre" value="{{$medicinas->Nombre}}">
+                        <input type="text" name="Nombre" value="{{old('Nombre', $medicinas->Nombre)}}">
                         @error('Nombre')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Laboratorio</label>
-                        <input type="text" name="Laboratorio" value="{{$medicinas->Laboratorio}}">    
+                        <input type="text" name="Laboratorio" value="{{old('Laboratorio', $medicinas->Laboratorio)}}">    
                         @error('Laboratorio')
                             <small class="text-danger">{{$message}}</small>
                         @enderror                
                     </li>
                     <li>
                         <label for="">Formula</label>
-                        <input type="text" name="Formula" value="{{$medicinas->Formula}}">
+                        <input type="text" name="Formula" value="{{old('Formula', $medicinas->Formula)}}">
                         @error('Formula')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Descripcion</label>
-                        <textarea name="Descripcion">{{$medicinas->Descripcion}}</textarea>
+                        <textarea name="Descripcion">{{old('Descripcion', $medicinas->Descripcion)}}</textarea>
                         @error('Descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Costo</label>
-                        <input type="number" name="PrecioCosto" value="{{$medicinas->PrecioCosto}}">
+                        <input type="number" name="PrecioCosto" value="{{old('PrecioCosto', $medicinas->PrecioCosto)}}">
                         @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Venta</label>
-                        <input type="number" name="PrecioVenta" value="{{$medicinas->PrecioVenta}}">
+                        <input type="number" name="PrecioVenta" value="{{old('PrecioVenta', $medicinas->PrecioVenta)}}">
                         @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Existencias</label>
-                        <input type="number" name="Existencias" value="{{$medicinas->Existencias}}">
+                        <input type="number" name="Existencias" value="{{old('Existencias', $medicinas->Existencias)}}">
                         @error('Existencias')
                             <small class="text-danger">{{$message}}</small>
                         @enderror

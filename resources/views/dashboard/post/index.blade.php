@@ -97,7 +97,11 @@
                         <td>
                             <a class="btn btn-primary" href="{{route('post.show', $medicina->id)}}">Ver</a>
                             <a class="btn btn-info" href="{{route('post.edit', $medicina->id)}}">Editar</a>
-                            <button class="btn btn-danger">Eliminar</button>
+                            <form method="POST" action="{{route('post.destroy', $medicina->id)}}">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
