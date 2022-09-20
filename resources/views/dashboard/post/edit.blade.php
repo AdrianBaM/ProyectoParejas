@@ -9,33 +9,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <title>Farmacia</title>
     @include('dashboard.partials.nav-header-main')
-    @csrf
+    
 </head>
 <body>
     <h1>Ingreso de medicamentos</h1>
-    <form action="{{route('post.update', $medicinas->id)}}" method="POST">
-        @method('PUT');
+    <form action="{{route('post.update', $medicina->id)}}" method="post">
+        @method('PUT')
         @include('dashboard.partials.session-flash-status')
         <div class="container">
             <nav>
             <ul>
                     <li>
                         <label for="">Nombre Medicamento</label>
-                        <input type="text" name="Nombre" value="{{old('Nombre', $medicinas->Nombre)}}">
+                        <input type="text" name="Nombre" value="{{old('Nombre', $medicina->Nombre)}}">
                         @error('Nombre')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Laboratorio</label>
-                        <input type="text" name="Laboratorio" value="{{old('Laboratorio', $medicinas->Laboratorio)}}">    
+                        <input type="text" name="Laboratorio" value="{{old('Laboratorio', $medicina->Laboratorio)}}">    
                         @error('Laboratorio')
                             <small class="text-danger">{{$message}}</small>
                         @enderror                
                     </li>
                     <li>
                         <label for="">Formula</label>
-                        <input type="text" name="Formula" value="{{old('Formula', $medicinas->Formula)}}">
+                        <input type="text" name="Formula" value="{{old('Formula', $medicina->Formula)}}">
                         @error('Formula')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
@@ -49,21 +49,21 @@
                     </li>
                     <li>
                         <label for="">Precio Costo</label>
-                        <input type="number" name="PrecioCosto" value="{{old('PrecioCosto', $medicinas->PrecioCosto)}}">
+                        <input type="number" name="PrecioCosto" value="{{old('PrecioCosto', $medicina->PrecioCosto)}}">
                         @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Venta</label>
-                        <input type="number" name="PrecioVenta" value="{{old('PrecioVenta', $medicinas->PrecioVenta)}}">
-                        @error('PrecioCosto')
+                        <input type="number" name="PrecioVenta" value="{{old('PrecioVenta', $medicina->PrecioVenta)}}">
+                        @error('PrecioVenta')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Existencias</label>
-                        <input type="number" name="Existencias" value="{{old('Existencias', $medicinas->Existencias)}}">
+                        <input type="number" name="Existencias" value="{{old('Existencias', $medicina->Existencias)}}">
                         @error('Existencias')
                             <small class="text-danger">{{$message}}</small>
                         @enderror

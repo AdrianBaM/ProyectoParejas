@@ -19,8 +19,8 @@ class medicinasController extends Controller
         /* $medicinas = medicinas::all();
         echo view('dashboard.post.index')->with('medicinas', $medicinas); */
         //asc es de forma ascendente
-        $medicinas=medicinas::orderBy('created_at', 'desc')->cursorpaginate(5);
-        echo view ('dashboard.post.index', ['medicinas'=>$medicinas]);
+        $medicina=medicinas::orderBy('created_at', 'desc')->cursorpaginate(5);
+        echo view ('dashboard.post.index', ['medicinas'=>$medicina]);
     }
 
     /**
@@ -30,7 +30,7 @@ class medicinasController extends Controller
      */
     public function create()
     {
-        echo view ('dashboard.post.create');
+        echo view ('dashboard.post.create', ["medicina"=> new medicinas()]);
     }
 
     /**
@@ -55,7 +55,7 @@ class medicinasController extends Controller
      */
     public function show(medicinas $medicina)
     {
-        echo view ('dashboard.post.show', ["medicinas"=>$medicina]);
+        echo view ('dashboard.post.show', ["medicina"=>$medicina]);
     }
 
     /**
@@ -66,7 +66,7 @@ class medicinasController extends Controller
      */
     public function edit(medicinas $medicina)
     {
-        echo view ('dashboard.post.edit', ["medicinas"=>$medicina]);
+        echo view ('dashboard.post.edit', ["medicina"=>$medicina]);
     }
 
     /**
@@ -86,12 +86,11 @@ class medicinasController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\medicinas   $id
-     * 
      * @return \Illuminate\Http\Response
      */
-    public function destroy(medicinas $medicinas)
+    public function destroy(medicinas $medicina)
     {
-        $medicinas->delete();
+        $medicina->delete();
         return back()->with('status', 'Post fue eliminado');
     }
 }

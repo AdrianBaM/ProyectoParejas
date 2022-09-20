@@ -21,49 +21,49 @@
                 <ul>
                     <li>
                         <label for="">Nombre Medicamento</label>
-                        <input readonly type="text" name="Nombre" value="{{$medicinas->Nombre}}">
+                        <input readonly type="text" name="Nombre" value="{{$medicina->Nombre}}">
                         @error('Nombre')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Laboratorio</label>
-                        <input readonly type="text" name="Laboratorio" value="{{$medicinas->Laboratorio}}">    
+                        <input readonly type="text" name="Laboratorio" value="{{$medicina->Laboratorio}}">    
                         @error('Laboratorio')
                             <small class="text-danger">{{$message}}</small>
                         @enderror                
                     </li>
                     <li>
                         <label for="">Formula</label>
-                        <input readonly type="text" name="Formula" value="{{$medicinas->Formula}}">
+                        <input readonly type="text" name="Formula" value="{{$medicina->Formula}}">
                         @error('Formula')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Descripcion</label>
-                        <textarea readonly name="Descripcion">{{$medicinas->Descripcion}}</textarea>
+                        <textarea readonly name="Descripcion">{{$medicina->Descripcion}}</textarea>
                         @error('Descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Costo</label>
-                        <input readonly type="number" name="PrecioCosto" value="{{$medicinas->PrecioCosto}}">
+                        <input readonly type="number" name="PrecioCosto" value="{{$medicina->PrecioCosto}}">
                         @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Venta</label>
-                        <input readonly type="number" name="PrecioVenta" value="{{$medicinas->PrecioVenta}}">
+                        <input readonly type="number" name="PrecioVenta" value="{{$medicina->PrecioVenta}}">
                         @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Existencias</label>
-                        <input readonly type="number" name="Existencias" value="{{$medicinas->Existencias}}">
+                        <input readonly type="number" name="Existencias" value="{{$medicina->Existencias}}">
                         @error('Existencias')
                             <small class="text-danger">{{$message}}</small>
                         @enderror

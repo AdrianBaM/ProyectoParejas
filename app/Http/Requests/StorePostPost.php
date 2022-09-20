@@ -24,7 +24,7 @@ class StorePostPost extends FormRequest
     public function rules()
     {
         return [
-            'Nombre'=>'required|min:5|Max:500', 'Laboratorio'=>'required|min:5|Max:500', 'Formula'=>'required|min:5', 'Descripcion'=>'required|min:5', 'PrecioCosto'=>'required', 'PrecioVenta'=>'required', 'Existencias'=>'required'
+            'Nombre'=>'required|min:5|Max:500', 'Laboratorio'=>'required|min:5|Max:500', 'Formula'=>'required|min:5', 'Descripcion'=>'required|min:5', 'PrecioCosto'=>'required', 'PrecioVenta'=>'required', 'Existencias'=>'required',
 
         ];
     }
