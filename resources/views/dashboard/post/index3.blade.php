@@ -93,8 +93,7 @@
                             </td>
                             
                             <td>
-                                <a href="{{route('mis.show',$miscelaneo->id)}}" class="btn btn-primary">Ver</a>
-                                <a href="{{route('mis.edit',$miscelaneo->id)}}" class="btn btn-secondary">Actualizar</a>
+                                <a href="{{route('mis.edit',$miscelaneo->id)}}" class="btn btn-secondary">Editar</a>
                                 <form action="{{route('mis.destroy',$miscelaneo->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf

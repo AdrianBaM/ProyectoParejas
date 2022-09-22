@@ -60,22 +60,21 @@ class farmacosController extends Controller
      * @param  \App\Models\farmacos
      * @return \Illuminate\Http\Response
      */
-    public function edit(farmacos $farmaco)
-    {
-        echo view ('dashboard.post.edit2', ["farmaco"=>$farmaco]);
+    public function edit($id){
+
+        $farmacos = farmacos::find($id);
+
+        return view('dashboard.post.edit2', compact('farmacos'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\farmacos
-     * @return \Illuminate\Http\Response
-     */
-    public function update(StoreFarmacosPost $request, farmacos $farmaco)
-    {
-        $farmaco->update($request->validated());
-        return back()->with('status', 'Muchas gracias tu post fue realizado');
+    
+    public function update(Request $request, $id){
+
+        $farmacos = farmacos::find($id);
+
+        $farmacos->update($request->all());
+
+        return redirect()->route('far.index');
     }
 
     /**
@@ -86,7 +85,8 @@ class farmacosController extends Controller
      */
     public function destroy(farmacos $farmaco)
     {
+        $farmaco= farmacos::find($id);
         $farmaco->delete();
-        return back()->with('status', 'Post fue eliminado');
+        return redirect()->route('far.index');
     }
 }

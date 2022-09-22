@@ -110,8 +110,7 @@
                             </td>
                             
                             <td>
-                                <a href="{{route('post.show',$medicina->id)}}" class="btn btn-primary">Ver</a>
-                                <a href="{{route('post.edit',$medicina->id)}}" class="btn btn-secondary">Actualizar</a>
+                                <a href="{{route('post.edit',$medicina->id)}}" class="btn btn-secondary">Editar</a>
                                 <form action="{{route('post.destroy',$medicina->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf

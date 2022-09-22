@@ -64,22 +64,21 @@ class miscelaneosController extends Controller
      * @param  \App\Models\miscelaneos  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(miscelaneos $miscelaneo)
-    {
-        echo view ('dashboard.post.edit3', ["miscelaneo"=>$miscelaneo]);
+    public function edit($id){
+
+        $miscelaneos = miscelaneos::find($id);
+
+        return view('dashboard.post.edit3', compact('miscelaneos'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\miscelaneos  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Store2PostPost $request, miscelaneos $miscelaneos)
-    {
-        $miscelaneos->update($request->validated());
-        return back()->with('status', 'Muchas gracias tu post fue realizado');
+    
+    public function update(Request $request, $id){
+
+        $miscelaneos = miscelaneos::find($id);
+
+        $miscelaneos->update($request->all());
+
+        return redirect()->route('mis.index');
     }
 
     /**
@@ -88,9 +87,10 @@ class miscelaneosController extends Controller
      * @param  \App\Models\miscelaneos  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(miscelaneos $miscelaneo)
+    public function destroy($id)
     {
+        $miscelaneo= miscelaneos::find($id);
         $miscelaneo->delete();
-        return back()->with('status', 'Post fue eliminado');
+        return redirect()->route('mis.index');
     }
 }

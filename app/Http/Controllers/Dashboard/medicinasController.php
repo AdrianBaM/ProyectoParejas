@@ -64,22 +64,21 @@ class medicinasController extends Controller
      * @param  \App\Models\medicinas   $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(medicinas $medicina)
-    {
-        echo view ('dashboard.post.edit', ["medicina"=>$medicina]);
+    public function edit($id){
+
+        $medicinas = medicinas::find($id);
+
+        return view('dashboard.post.edit', compact('medicinas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\medicinas   $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(StorePostPost $request, medicinas $medicina)
-    {
-        $medicina->update($request->validated());
-        return back()->with('status', 'Muchas gracias tu post fue realizado');
+    
+    public function update(Request $request, $id){
+
+        $medicinas = medicinas::find($id);
+
+        $medicinas->update($request->all());
+
+        return redirect()->route('post.index');
     }
 
     /**
@@ -88,9 +87,10 @@ class medicinasController extends Controller
      * @param  \App\Models\medicinas   $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(medicinas $medicina)
+    public function destroy($id)
     {
+        $medicina= medicinas::find($id);
         $medicina->delete();
-        return back()->with('status', 'Post fue eliminado');
+        return redirect()->route('post.index');
     }
 }

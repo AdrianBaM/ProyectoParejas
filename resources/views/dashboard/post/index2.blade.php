@@ -109,8 +109,7 @@
                             </td>
                             
                             <td>
-                                <a href="{{route('far.show',$farmaco->id)}}" class="btn btn-primary">Ver</a>
-                                <a href="{{route('far.edit',$farmaco->id)}}" class="btn btn-secondary">Actualizar</a>
+                                <a href="{{route('far.edit',$farmaco->id)}}" class="btn btn-secondary">Editar</a>
                                 <form action="{{route('far.destroy',$farmaco->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
