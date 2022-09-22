@@ -13,7 +13,7 @@
     @include('dashboard.partials.nav-header-main')
     <h1>Login</h1>
     @csrf
-    <form method="post">
+    <form method="POST">
         @csrf
         <label>
             <input name="Nombre" type="text" placeholder="Nombre...">

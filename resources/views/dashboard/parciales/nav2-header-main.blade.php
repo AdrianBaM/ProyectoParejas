@@ -23,7 +23,10 @@
         <li class="nav-item">
           <a class="nav-link " href="/login">Login<span class="sr-only"></span></a>
           <li>
-            <a class="nav-link " href="/logout">Logout<span class="sr-only"></span></a>
+          <form style="display: inline" action="/logout" method="POST">
+                @csrf
+                <a class="nav-link" href="#" onclick="this.closest('form').submit()">Logout</a>
+            </form>
           </li>
     
         </li>
