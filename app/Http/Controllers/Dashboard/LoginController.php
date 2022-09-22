@@ -22,10 +22,10 @@ class LoginController extends Controller
             {
                 return redirect('far');
             }
-            if($request->Nombre === 'Admin'){
-                return redirect('post');
-            }
             if($request->Nombre === 'Cliente'){
+                return redirect('/');
+            }
+            if($request->Nombre === 'Admin'){
                 return redirect('post');
             }
             

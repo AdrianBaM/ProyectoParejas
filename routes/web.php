@@ -26,9 +26,8 @@ Route::get('/', function () {
 
 Route::view('login', 'login')->name('login')->middleware('guest');
 route::resource('post', medicinasController::class)->middleware('auth');
-route::resource('far', farmacosController::class);
-route::resource('mis', miscelaneosController::class);
-/* Route::resource('medicinas', 'App\Http\Controllers\MedicinaController'); */
+route::resource('far', farmacosController::class)->middleware('auth');
+route::resource('mis', miscelaneosController::class)->middleware('auth');
 
 
 Route::post('login', [LoginController::class, 'login']);
