@@ -23,9 +23,8 @@
               Miscelaneos
             </a>
             <ul class="dropdown-menu">
-              <li><a href="">Hola</a></li>
-              {{-- <li><a class="dropdown-item"  href="{{route('post2.create2')}}">Ingreso Miscelaneos</a></li>
-              <li><a class="dropdown-item" href={{route('post.index2')}}>Tabla Miscelaneos</a></li> --}}
+              <li><a class="dropdown-item"  href={{route('mis.create')}}>Ingreso Miscelaneos</a></li>
+              <li><a class="dropdown-item" href={{route('mis.index')}}>Tabla Miscelaneos</a></li>
             </ul>
           </li>
        

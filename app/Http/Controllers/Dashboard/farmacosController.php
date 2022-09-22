@@ -62,7 +62,7 @@ class farmacosController extends Controller
      */
     public function edit(farmacos $farmaco)
     {
-        echo view ('dashboard.far.edit2', ["farmaco"=>$farmaco]);
+        echo view ('dashboard.post.edit2', ["farmaco"=>$farmaco]);
     }
 
     /**

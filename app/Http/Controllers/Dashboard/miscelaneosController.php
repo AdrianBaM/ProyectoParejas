@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store2PostPost;
 use App\Models\miscelaneos;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 class miscelaneosController extends Controller
 {
@@ -18,7 +18,7 @@ class miscelaneosController extends Controller
     {
         //asc es de forma ascendente
         $miscelaneos=miscelaneos::orderBy('created_at', 'desc')->cursorpaginate(5);
-        echo view ('dashboard.post.index2', ['miscelaneos'=>$miscelaneos]);
+        echo view ('dashboard.post.index3', ['miscelaneos'=>$miscelaneos]);
         
     }
 
@@ -29,7 +29,7 @@ class miscelaneosController extends Controller
      */
     public function create()
     {
-        echo view ('dashboard.post.create');
+        echo view ('dashboard.post.create3', ["miscelaneo"=> new miscelaneos()]);
         //
     }
 
@@ -53,9 +53,9 @@ class miscelaneosController extends Controller
      * @param  \App\Models\miscelaneos  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(miscelaneos $miscelaneos)
+    public function show(miscelaneos $miscelaneo)
     {
-        echo view('dashboard.post.show2', ['miscelaneos'=>$miscelaneos]);
+        echo view('dashboard.post.show3', ['miscelaneo'=>$miscelaneo]);
     }
 
     /**
@@ -64,9 +64,9 @@ class miscelaneosController extends Controller
      * @param  \App\Models\miscelaneos  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(miscelaneos $miscelaneos)
+    public function edit(miscelaneos $miscelaneo)
     {
-        //
+        echo view ('dashboard.post.edit3', ["miscelaneo"=>$miscelaneo]);
     }
 
     /**
@@ -76,9 +76,10 @@ class miscelaneosController extends Controller
      * @param  \App\Models\miscelaneos  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, miscelaneos $miscelaneos)
+    public function update(Store2PostPost $request, miscelaneos $miscelaneos)
     {
-        //
+        $miscelaneos->update($request->validated());
+        return back()->with('status', 'Muchas gracias tu post fue realizado');
     }
 
     /**
@@ -87,8 +88,9 @@ class miscelaneosController extends Controller
      * @param  \App\Models\miscelaneos  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(miscelaneos $miscelaneos)
+    public function destroy(miscelaneos $miscelaneo)
     {
-        //
+        $miscelaneo->delete();
+        return back()->with('status', 'Post fue eliminado');
     }
 }

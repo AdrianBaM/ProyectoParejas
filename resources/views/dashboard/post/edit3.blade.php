@@ -8,62 +8,48 @@
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <title>Farmacia</title>
-    @include('dashboard.parciales.nav2-header-main')
+    @include('dashboard.partials.nav-header-main')
     
 </head>
 <body>
     <h1>Ingreso de Frmacos</h1>
-    <form action="{{route('far.update', $farmaco->id)}}" method="post">
+    <form action="{{route('mis.update', $miscelaneo->id)}}" method="post">
         @method('PUT')
         @include('dashboard.partials.session-flash-status')
         <div class="container">
             <nav>
             <ul>
                     <li>
-                        <label for="">Nombre Farmaco</label>
-                        <input type="text" name="Nombre" value="{{old('Nombre', $farmaco->Nombre)}}">
+                        <label for="">Nombre Miscelaneo</label>
+                        <input type="text" name="Nombre" value="{{old('Nombre', $miscelaneo->Nombre)}}">
                         @error('Nombre')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
-                        <label for="">Laboratorio</label>
-                        <input type="text" name="Laboratorio" value="{{old('Laboratorio', $farmaco->Laboratorio)}}">    
-                        @error('Laboratorio')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror                
-                    </li>
-                    <li>
-                        <label for="">Formula</label>
-                        <input type="text" name="Formula" value="{{old('Formula', $farmaco->Formula)}}">
-                        @error('Formula')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </li>
-                    <li>
                         <label for="">Descripcion</label>
-                        <textarea name="Descripcion">{{old('Descripcion', $farmaco->Descripcion)}}</textarea>
+                        <textarea name="Descripcion">{{old('Descripcion', $miscelaneo->Descripcion)}}</textarea>
                         @error('Descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Costo</label>
-                        <input type="number" name="PrecioCosto" value="{{old('PrecioCosto', $farmaco->PrecioCosto)}}">
+                        <input type="number" name="PrecioCosto" value="{{old('PrecioCosto', $miscelaneo->PrecioCosto)}}">
                         @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Venta</label>
-                        <input type="number" name="PrecioVenta" value="{{old('PrecioVenta', $farmaco->PrecioVenta)}}">
+                        <input type="number" name="PrecioVenta" value="{{old('PrecioVenta', $miscelaneo->PrecioVenta)}}">
                         @error('PrecioVenta')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Existencias</label>
-                        <input type="number" name="Existencias" value="{{old('Existencias', $farmaco->Existencias)}}">
+                        <input type="number" name="Existencias" value="{{old('Existencias', $miscelaneo->Existencias)}}">
                         @error('Existencias')
                             <small class="text-danger">{{$message}}</small>
                         @enderror

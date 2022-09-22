@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::view('login', 'login')->name('login')->middleware('guest');
 route::resource('post', medicinasController::class)->middleware('auth');
 route::resource('far', farmacosController::class);
+route::resource('mis', miscelaneosController::class);
 /* Route::resource('medicinas', 'App\Http\Controllers\MedicinaController'); */
 
 

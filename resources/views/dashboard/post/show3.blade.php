@@ -6,70 +6,53 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/Styles.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <title>Farmacia</title>
-    @include('dashboard.parciales.nav2-header-main')
-    
+    @include('dashboard.partials.nav-header-main')
 </head>
 <body>
-    <h1>Ingreso de Frmacos</h1>
-    <form action="{{route('far.update', $farmaco->id)}}" method="post">
-        @method('PUT')
-        @include('dashboard.partials.session-flash-status')
+    <h1>Registros</h1>
+
+    <form action="{{route('mis.store')}}" method="post">
+        @csrf
         <div class="container">
             <nav>
-            <ul>
+                <ul>
                     <li>
-                        <label for="">Nombre Farmaco</label>
-                        <input type="text" name="Nombre" value="{{old('Nombre', $farmaco->Nombre)}}">
+                        <label for="">Nombre Miscelaneo</label>
+                        <input readonly type="text" name="Nombre" value="{{$miscelaneo->Nombre}}">
                         @error('Nombre')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
-                        <label for="">Laboratorio</label>
-                        <input type="text" name="Laboratorio" value="{{old('Laboratorio', $farmaco->Laboratorio)}}">    
-                        @error('Laboratorio')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror                
-                    </li>
-                    <li>
-                        <label for="">Formula</label>
-                        <input type="text" name="Formula" value="{{old('Formula', $farmaco->Formula)}}">
-                        @error('Formula')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </li>
-                    <li>
                         <label for="">Descripcion</label>
-                        <textarea name="Descripcion">{{old('Descripcion', $farmaco->Descripcion)}}</textarea>
+                        <textarea readonly name="Descripcion">{{$miscelaneo->Descripcion}}</textarea>
                         @error('Descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Costo</label>
-                        <input type="number" name="PrecioCosto" value="{{old('PrecioCosto', $farmaco->PrecioCosto)}}">
+                        <input readonly type="number" name="PrecioCosto" value="{{$miscelaneo->PrecioCosto}}">
                         @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Precio Venta</label>
-                        <input type="number" name="PrecioVenta" value="{{old('PrecioVenta', $farmaco->PrecioVenta)}}">
-                        @error('PrecioVenta')
+                        <input readonly type="number" name="PrecioVenta" value="{{$miscelaneo->PrecioVenta}}">
+                        @error('PrecioCosto')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </li>
                     <li>
                         <label for="">Existencias</label>
-                        <input type="number" name="Existencias" value="{{old('Existencias', $farmaco->Existencias)}}">
+                        <input readonly type="number" name="Existencias" value="{{$miscelaneo->Existencias}}">
                         @error('Existencias')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
-                    </li>
-                    <li>
-                        <button type="submit">Enviar</button>
                     </li>
                 </ul>
             </nav>
