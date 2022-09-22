@@ -16,6 +16,12 @@ class LoginController extends Controller
         if($user->Password === md5($request->Password))
         {
             Auth::login($user);
+            /* return redirect('post/create'); */
+
+            if($request->Nombre === 'superadmin')
+            {
+                return redirect('far/create2');
+            }
             return redirect('post/create');
         }
         return redirect('login');
