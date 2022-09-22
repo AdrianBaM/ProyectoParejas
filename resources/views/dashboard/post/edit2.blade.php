@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="/css/Styles.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <title>Farmaco</title>
+    <title>Farmacia</title>
     @include('dashboard.parciales.nav2-header-main')
+    
 </head>
 <body>
-    <h1>Ingreso de Farmacos</h1>
-    <form action="{{route('far.store')}}" method="post">
+    <h1>Ingreso de Frmacos</h1>
+    <form action="{{route('far.update', $farmaco->id)}}" method="post">
+        @method('PUT')
         @include('dashboard.partials.session-flash-status')
         <div class="container">
             <nav>
-                <ul>
+            <ul>
                     <li>
-                        <label for="">Nombre Farmaco</label>
+                        <label for="">Nombre Medicamento</label>
                         <input type="text" name="Nombre" value="{{old('Nombre', $farmaco->Nombre)}}">
                         @error('Nombre')
                             <small class="text-danger">{{$message}}</small>

@@ -20,9 +20,15 @@ class LoginController extends Controller
 
             if($request->Nombre === 'superadmin')
             {
-                return redirect('far/create2');
+                return redirect('far');
             }
-            return redirect('post/create');
+            if($request->Nombre === 'Admin'){
+                return redirect('post');
+            }
+            if($request->Nombre === 'Cliente'){
+                return redirect('post');
+            }
+            
         }
         return redirect('login');
     }

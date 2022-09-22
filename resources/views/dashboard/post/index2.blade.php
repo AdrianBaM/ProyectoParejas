@@ -10,8 +10,7 @@
     <title>Farmacos</title>
 </head>
 <body>
-    @include('dashboard.partials.nav2-header-main')
-
+    @include('dashboard.parciales.nav2-header-main')
     <main>
         <div class="container">
             <table class="table table-striped">
@@ -23,7 +22,7 @@
                             </td>
                         
                             <td>
-                                Nombre
+                                Nombre Farmaco
                             </td>
                         
                             <td>
@@ -109,15 +108,15 @@
                                 {{$farmaco->updated_at-> format('d-m-Y')}}
                             </td>
                             
-                            {{-- <td>
-                                <a href="{{route('post.show',$farmaco->id)}}" class="btn btn-primary">Ver</a>
-                                <a href="{{route('post.edit',$farmaco->id)}}" class="btn btn-secondary">Actualizar</a>
-                                <form action="{{route('post.destroy',$farmaco->id)}}" method="POST">
+                            <td>
+                                <a href="{{route('far.show',$farmaco->id)}}" class="btn btn-primary">Ver</a>
+                                <a href="{{route('far.edit',$farmaco->id)}}" class="btn btn-secondary">Actualizar</a>
+                                <form action="{{route('far.destroy',$farmaco->id)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <button class="btn btn-danger" type="submit">Borrar</button>
                                 </form>
-                            </td> --}}
+                            </td>
                         </tr>
                     @endforeach
                 </Thead>

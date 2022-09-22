@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePostPost;
+use App\Http\Requests\StoreFarmacosPost;
 use Illuminate\Http\Request;
 use App\Models\farmacos;
 
@@ -16,8 +16,8 @@ class farmacosController extends Controller
      */
     public function index()
     {
-        $farmaco=farmacos::orderBy('created_at', 'desc')->cursorpaginate(5);
-        echo view ('dashboard.far.index2', ['farmacos'=>$farmaco]);
+        $farmacos=farmacos::orderBy('created_at', 'desc')->cursorpaginate(5);
+        echo view ('dashboard.post.index2', ['farmacos'=>$farmacos]);
     }
 
     /**
@@ -27,7 +27,7 @@ class farmacosController extends Controller
      */
     public function create()
     {
-        echo view ('dashboard.far.create2', ["farmaco"=> new farmacos()]);
+        echo view ('dashboard.post.create2', ["farmaco"=> new farmacos()]);
     }
 
     /**
@@ -36,53 +36,57 @@ class farmacosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFarmacosPost $request)
     {
-        //
+        echo "El titulo trae: ".$request->Nombre;
+        farmacos::create($request->validated());
+        return back()->with('status','Post creado con exito');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\farmacos
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(farmacos $farmaco)
     {
-        //
+        echo view ('dashboard.post.show2', ["farmacos"=>$farmaco]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\farmacos
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(farmacos $farmaco)
     {
-        //
+        echo view ('dashboard.far.edit2', ["farmaco"=>$farmaco]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\farmacos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreFarmacosPost $request, farmacos $farmaco)
     {
-        //
+        $farmaco->update($request->validated());
+        return back()->with('status', 'Muchas gracias tu post fue realizado');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\farmacos
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(farmacos $farmaco)
     {
-        //
+        $farmaco->delete();
+        return back()->with('status', 'Post fue eliminado');
     }
 }

@@ -13,8 +13,8 @@
               Farmacos restringidos
             </a>
             <ul class="dropdown-menu">
-              {{-- <li><a class="dropdown-item"  href={{route('post.create')}}>Ingreso Medicinas</a></li> --}}
-              <li><a class="dropdown-item" href={{route('post.index2')}}>Tabla Medicinas</a></li>
+               <li><a class="dropdown-item"  href={{route('far.create')}}>Ingreso Farmacos</a></li> 
+               <li><a class="dropdown-item"  href={{route('far.index')}}>Tablas</a></li> 
             </ul>
           </li>
        
